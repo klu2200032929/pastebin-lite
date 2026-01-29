@@ -21,6 +21,7 @@ export async function POST(request) {
             return NextResponse.json({ error: error.message }, { status: 400 })
         }
         console.error('Create paste error:', error)
-        return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
+        // Return actual error for debugging deployment
+        return NextResponse.json({ error: `Internal Server Error: ${error.message}` }, { status: 500 })
     }
 }
